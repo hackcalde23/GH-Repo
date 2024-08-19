@@ -1,5 +1,10 @@
 name: Events Demo 1
-on: ...
+on: #we can add more than one event here, multiple events. 
+  pull_request: #Event name, in this case pull_request
+    types: #[opened, edited] Specific types of pull_request event, check documentation for more options and names because is case sensitive. brackets are used to specify multiple types.
+      - opened #First type of pull_request event in this better watch out for the indentation
+      - edited #Second type of pull_request event
+  workflow_dispatch: #Example of a second event, workflow_dispatch
 jobs:
   deploy:
     runs-on: ubuntu-latest
