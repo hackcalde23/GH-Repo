@@ -4,6 +4,17 @@ on: #we can add more than one event here, multiple events.
     types: #[opened, edited] Specific types of pull_request event, check documentation for more options and names because is case sensitive. brackets are used to specify multiple types.
       - opened #First type of pull_request event in this better watch out for the indentation
       - edited #Second type of pull_request event
+    branches: # e.g of filters, we can add more than one branch here
+      - main #First branch of push event
+      - dev-* #Second branch of push event, dev-new or more variants of dev-*
+      - feat/** #Third branch of push event check documentation for syntax information
+  push: #Event name, in this case push
+    branches: #E.g of filters - Specific branches of push event, check documentation for more options and names because is case sensitive. brackets are used to specify multiple branches.
+      - main #First branch of push event
+      - dev-* #Second branch of push event, dev-new or more variants of dev-*
+      - feat/** #Third branch of push event check documentation for syntax information
+    paths-ignore: 
+      -  '.github/workflows/*' #Ignore changes in .github folder and any workflow added or modified.
   workflow_dispatch: #Example of a second event, workflow_dispatch
 jobs:
   deploy:
